@@ -4,20 +4,20 @@ A =  [2    -5    3;
      -1     8    5;
       4    -1    7;
       -1    3    2];
-x = A(:,1); % Kör med detta så länge - modulärt, inte alltid reflektion på A
+x = A(:,1); % I det här fallet använder vi A. Behöver inte alltid vara så.
 
-ApplyReflection(A, x)
-[R, Q] = HouseholderQR(A)
-Q*Q'
-[Qreal, Rreal] = qr(A)
+ApplyReflection(A, x) % Applicera reflektion
+[R, Q] = HouseholderQR(A) % QR factorization med Householder
+Q*Q' % Ska ge identitetsmatrisen
+[Qreal, Rreal] = qr(A) % Det "korrekta" svaret
 n = size(A,2);
 Rnew = R(1:n,:);
 Qnew = Q(1:n,:);
 gamma = R(1:n,end);
 alpha = R(n+1,end);
 
-% Coefs = Rnew\gamma; 
-Coefs = backSubstitution(Rnew,gamma,n); % man kan också köra detta, eller?
+% Coefs = Rnew\gamma; % man kan också köra detta, ger samma resultat
+Coefs = backSubstitution(Rnew,gamma,n); % man kan också köra detta, ger samma resultat
 residual = abs(alpha)
 %%
 clear
@@ -28,7 +28,7 @@ PositionData = CometObservation(time);
 [Coefs, residual] = CometTrajectory(PositionData)
 DisplayComet(Coefs, PositionData);
 
-%% Kolla snabbheten 
+%% Kolla snabbheten bara för skojs skull
 % clear
 % clc
 % 

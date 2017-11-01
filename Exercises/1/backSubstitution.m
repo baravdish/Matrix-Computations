@@ -7,10 +7,13 @@ function [x] = backSubstitution(U,b,n)
 % U x = b
 % K. Ming Leung, 01/26/03
 
-% Matlabs egna kommando '\' funkar också
-x=zeros(n,1);
-for j=n:-1:1
-    if (U(j,j)==0) error('Matrix is singular!'); end;
-    x(j)=b(j)/U(j,j);
-    b(1:j-1)=b(1:j-1)-U(1:j-1,j)*x(j);
+% ------------- Kommentar ------------- 
+% Matlabs egna kommando '\' går också att använda, inte alltid samma dock.
+x = zeros(n,1);
+for j = n:-1:1
+    if (U(j,j) == 0) 
+        error('Matrix is singular!'); 
+    end
+    x(j) = b(j)/U(j,j);
+    b(1:j-1) = b(1:j-1) - U(1:j-1,j)*x(j);
 end

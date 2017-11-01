@@ -11,9 +11,10 @@ y = PositionData(2,:)';
 
 % Now create the least squares problem and solve it....
 
+% b ska vara en kolumnvektor som innehåller -1, detta för att man kan flytta över 1 från VL till HL i uttrycket och då blir HL en kolumn med -1
 b = -1*ones(length(y),1);
 
-% Hur g�ra om det �r n stycken parametrar?
+% Bygg upp systemet
 A(:,1) = x.^2;
 A(:,2) = x.*y;
 A(:,3) = y.^2;
@@ -23,8 +24,12 @@ A(:,5) = y;
 % rank(A)
 % cond(A)
 
-Ar = [A, b];
+Ar = [A, b]; % Slå ihop till aguemented system
 [R, Q] = HouseholderQR(Ar);
+
+% LSS och Residual 
+% Följande uttryck för att beräkna LSS och residualen finns under rubrik "Avoiding the Q" i kurs TANA15, föreläsning L03 QR-Decomposition, 
+% 10 Agusti 2017, på slide eller sida 8 
 
 n = size(A,2);
 Rnew = R(1:n,:);
@@ -36,9 +41,9 @@ alpha = R(n+1,end);
 % r = Qnew*b;
 
 % Coefs = Rnew\gamma; 
-Coefs = backSubstitution(Rnew,gamma,n); % man kan ocks� k�ra detta, eller?
+Coefs = backSubstitution(Rnew,gamma,n);
 residual = abs(alpha);
-% DisplayComet(Coefs,PositionData);
+DisplayComet(Coefs,PositionData);
 % size(b)
 % size(Qnew)
 

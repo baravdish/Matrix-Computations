@@ -1,3 +1,9 @@
+% QRUpdateRow uppdaterar en enskild rad m.h.a. Given rotation
+% Input:
+%       A: Matris (nästan triangulär, förutom sista raden som fått extra data exempelvis)
+% Output:
+%		R: Triangulär matris (uppertriangular)
+
 function [R] = QRUpdateRow(A)
 
 [m, n] = size(A);

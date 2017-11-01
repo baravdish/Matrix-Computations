@@ -1,3 +1,5 @@
+% Given rotation på hela matrisen, inte bara uppdatering av en rad 
+
 function [A] = givens_QR(A)
 
 [m,n] = size(A);
