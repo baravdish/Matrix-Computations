@@ -60,7 +60,7 @@ semilogy(elapsedTime117, 'DisplayName', 'Saxpy Matrix Multiplication')
 semilogy(elapsedTime118, 'DisplayName', 'Outer Product Matrix Multiplication')
 
 title('Matrix multiplication')
-xlabel('x=1,2,3,4,5,6,7... motsvarar matrisstorleken n = 10, 100, 500, 1000:1000:10000')
+xlabel('x=1,2,3,4,5,6,7,8 motsvarar matrisstorleken NxN där N = 10, 100, 500, 1000:5000')
 ylabel('Tid i sekunder')
 
 legend('show')
@@ -74,7 +74,7 @@ plot(elapsedTime117, 'DisplayName', 'Saxpy Matrix Multiplication')
 plot(elapsedTime118, 'DisplayName', 'Outer Product Matrix Multiplication')
 
 title('Matrix multiplication')
-xlabel('x=1,2,3,4,5,6,7... motsvarar matrisstorleken n = 10, 100, 500, 1000:1000:10000')
+xlabel('x=1,2,3,4,5,6,7,8 motsvarar matrisstorleken NxN där N = 10, 100, 500, 1000:5000')
 ylabel('Tid i sekunder')
 
 legend('show')
