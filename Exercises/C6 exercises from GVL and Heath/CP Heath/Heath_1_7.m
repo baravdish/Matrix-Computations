@@ -1,8 +1,8 @@
-%% (A) Finita differense metoden - framåt-derivatan
+%% (A) Finita differensmetoden - framåt
 clear
 clc
 % Heath, Computer Problem 1.7:
-% a) Gör ett program för finita differense metoden. Testa för tan(x) för x = 1
+% a) Gör ett program för finita differensmetoden. Testa för tan(x) för x = 1
 % b) Jämför felet (error) med kvadraten av sec(x) som är inbyggd funktion
 % Plotta magnituden av felet som en funktion av h, för h = 10^-k, k =
 % 0,...,16. Använd log-skalan för h och för magnituden av felet.
@@ -27,10 +27,13 @@ end
 % b)
 error = abs(df_numerical - df_exact);
 loglog(h_range, error)
+title('Forward');
+ylabel('Error');
+xlabel('h')
 
 % c) Ja, felet har sitt minimum vid k = 8 och h = 10^-8, se figur
 % d) Tumregeln säger att: 
-% h_thumbrule ~ sqrt(eps) ~ 1.5*10^-8 ~ 10^-8 = h
+% h_thumbrule ~= sqrt(eps) ~= 1.5*10^-8 ~= 10^-8 = h
 h_thumbrule = sqrt(eps)
 
 %% (B) Central-differens
@@ -53,10 +56,10 @@ end
 % b)
 error = abs(df_numerical - df_exact);
 loglog(h_range, error)
-
-% c) Ja, felet har sitt minimum vid k = 8 och h = 10^-8, se figur
-% d) Tumregeln säger att: 
-% h_thumbrule ~ sqrt(eps) ~ 1.5*10^-8 ~ 10^-8 = h
+loglog(h_range, error)
+title('Central');
+ylabel('Error');
+xlabel('h')
 h_thumbrule = sqrt(eps)
 
 

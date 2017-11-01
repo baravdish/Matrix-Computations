@@ -1,6 +1,5 @@
 clear
 clc
-% FIXA SÅ ATT DET SER FINT UT MED TITEL OSV
 % ----------------- Kommentarer -----------------
 % Med 4 siffrors noggrannhet så ger n = 10 ett fel på 4 decimaler, se
 % variabeln p_norm_error längre ned. D.v.s. om n > 9 så räknar vi med
@@ -12,11 +11,11 @@ clc
 % Detta beror på att matrisen är nästan singulär och ger därför opålitlig feluppskattning.
 
 n = 10;
-H = hilb(n);
+H = hilb(n); % Skapa en hilbert matris
 x = ones(n,1);
 b = H*x;
 
-x_hat = H\b;
+x_hat = H\b; % Lös ut en approximativ lösning
 % x_hat = gausselim(H,b); => Ger samma residual/norm/error som H\b
 r = b - H*x_hat;
 p_norm_residual = max(abs(r))
@@ -34,6 +33,7 @@ end
 plot(condition_number_vector);
 
 %% Kladd/test/anteckningar
+
 % SIZE = 3;
 % n = 1:SIZE;
 % vec = ones(1,SIZE);

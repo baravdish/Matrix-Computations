@@ -6,10 +6,10 @@ A =  [2    -5    3;
       -1    3    2];
 x = A(:,1); % I det här fallet använder vi A. Behöver inte alltid vara så.
 
-ApplyReflection(A, x) % Applicera reflektion
-[R, Q] = HouseholderQR(A) % QR factorization med Householder
-Q*Q' % Ska ge identitetsmatrisen
-[Qreal, Rreal] = qr(A) % Det "korrekta" svaret
+ApplyReflection(A, x) % Applicera reflektion på första kolumnen
+[R, Q] = HouseholderQR(A); % QR factorization med Householder
+QQ = Q*Q' % Ska ge identitetsmatrisen
+[Qreal, Rreal] = qr(A); % Det "korrekta" svaret
 n = size(A,2);
 Rnew = R(1:n,:);
 Qnew = Q(1:n,:);
@@ -20,8 +20,8 @@ alpha = R(n+1,end);
 Coefs = backSubstitution(Rnew,gamma,n); % man kan också köra detta, ger samma resultat
 residual = abs(alpha)
 %%
-clear
-clc
+% clear
+% clc
 
 time = 0:0.25:15;
 PositionData = CometObservation(time);
