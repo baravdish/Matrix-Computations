@@ -1,6 +1,10 @@
 clear
 clc
 % ----------------- Kommentarer -----------------
+% Från Heath 2.3.4 Error Bound har vi: Antag att indata i systemet har
+% en noggrannhet på machine precision; då förlorar den beräknade lösningen
+% ungefär log10(cond(A)) decimalers noggrannhet relativt till noggranheten
+% hos indata (vilket är eps_machine)
 % Med 4 siffrors noggrannhet så ger n = 10 ett fel på 4 decimaler, se
 % variabeln p_norm_error längre ned. D.v.s. om n > 9 så räknar vi med
 % totalt fel (100%) bland elementen i vektorn x_hat, som också finns definierad längre ned.
