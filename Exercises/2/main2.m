@@ -20,8 +20,7 @@ x2 = R(:,1:3)\R(:,4)
 
 x = [A; 1 2 6]\[b;5]
 
-% Jämförelse
-% Rr = givens_QR(A)
+% Inbyggda
 % [Q, R] = givensqr(A)
 
 % Rreal =

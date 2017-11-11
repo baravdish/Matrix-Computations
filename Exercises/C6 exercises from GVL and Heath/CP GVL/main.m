@@ -1,7 +1,19 @@
+% ----------------- Kommentarer ----------------- 
+% För en snabb körning så är det bara att köra Run, n=500 då.
+% För att köra detta för upp till n=5000 så sätt shorterRun = 0.
+% till bara "SIZE = length(n);"
+% 
+% -------- OBS!!! --------  
+% KÖRNINGAR FÖR n = 5000x5000 FINNS REDAN SPARADE I GVL_time_results_n5000.mat
+% 
+% FIGURER FINNS REDAN SPARADE I GVL_n_5000x5000.fig OCH
+% GVL_n_5000x5000_SEMILOGY.fig
+
 clear
 clc
+shorterRun = 4;
 n = [10, 100, 500, 1000, 2000, 3000, 4000];
-SIZE = length(n);
+SIZE = length(n) - shorterRun;
 %% GVL Algorithm 1.1.5
 elapsedTime115 = zeros(SIZE,1);
 for i = 1:SIZE
